@@ -2,7 +2,7 @@
 
 ## Setup
 
-Environment is set up using [Docker]{https://www.docker.com}.
+Environment is set up using [Docker](https://www.docker.com).
 You have to install docker and docker-compose in order to run it.
 
 ## Development environment
