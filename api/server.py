@@ -2,22 +2,13 @@ import os
 import sys
 from flask import Flask, request, jsonify
 import numpy as np
-import pickle
-
-# path=os.path.dirname(__file__)
-# print(path)
-#sys.path.append(os.path.join(os.path.dirname(__file__),'..'))
+import pickleW
 import utils.utils as utils
 
 app = Flask(__name__)
 
 model = pickle.load(open(os.getenv('MODEL'), 'rb'))
 features=pickle.load(open(os.getenv('FEATURES'), 'rb'))
-
-
-@app.route('/')
-def hello_world():
-    return 'Hello, World!'
 
 @app.route('/predict', methods=['POST'])
 def predict():
