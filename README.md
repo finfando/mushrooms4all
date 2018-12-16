@@ -62,3 +62,18 @@ API returns a JSON with one item:
     {
         "class": "p"
     }
+
+##  Deployment
+
+Deployed on AWS EC2 server. SSH using a privare key:
+
+    ssh -i mushroom.pem ec2-user@ec2-63-32-111-59.eu-west-1.compute.amazonaws.com
+
+Tag docker image and push to the repository. Substitute 6fcac6f00aed for appropriate image id.
+
+    docker tag 6fcac6f00aed filipfinfando/mushroom:first
+    docker push filipfinfando/mushroom
+
+Run docker container from Docker Hub:
+
+    sudo docker run -d -p 5000:5000 -e FLASK_APP=/application/api/server.py -e MODEL=/application/models/tree_5.pickle -e FEATURES=/application/models/features.pickle --name mushrooms filipfinfando/mushroom:first
